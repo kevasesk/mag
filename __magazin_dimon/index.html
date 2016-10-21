@@ -1,0 +1,62 @@
+<!DOCUMENT html>
+<html ng-app="Main">
+<head >
+    <title>magazine for dimon</title>
+    <meta charset="UTF-8">
+
+    <!--<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>-->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+
+    <script  type="text/javascript" src="js/angular.min.js"></script>
+    <script  type="text/javascript" src="js/angular-route.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+    <link href="style.css" rel="stylesheet" />
+    <script src="js/main.js"></script>
+</head>
+<body>
+<div class="main-container">
+    <header>
+        <div class="row logo">
+            <div class="col-md-6">
+                <img src="images/logo.png" width="250" />
+            </div>
+            <div class="col-md-6">
+                <div class="row">Телефоны:</div>
+                <div class="row">+38(063)-472-74-23</div>
+                <div class="row">+38(095)-472-74-23</div>
+            </div>
+        </div>
+
+        <div class="navmenu">
+            <div class="row">
+                <div class="col-md-8">
+
+                </div>
+                <div class="col-md-4">
+                    <ul class="nav nav-pills">
+                        <li class="active"><a href="#/home">Главная</a></li>
+                        <li><a href="#/about">Гарантии</a></li>
+                        <li><a href="#/home">Корзина</a></li>
+                        <li><a href="#/home">Аккаунт</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </header>
+    <main>
+    <div class="container">
+        <ng-view></ng-view>
+    </div>
+    </main>
+</div>
+<footer>
+
+</footer>
+
+
+</body>
+
+</html>

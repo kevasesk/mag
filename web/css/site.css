@@ -1,0 +1,162 @@
+.main-container
+{
+    background-color:#f7f7f7;
+    width:1500px;
+    margin:auto;
+}
+body
+{
+    background-color:#f7f7f7;
+}
+
+.row
+{
+    margin-left:0;
+    margin-right: 0;
+}
+header,main
+{
+    background-color:#f7f7f7;
+}
+.admin-table, .admin-table th
+{
+    text-align: center !important;
+}
+.container
+{
+    width: 100%;
+    padding-left:0px;
+    padding-right:0px;
+}
+.navmenu
+{
+    background-color: #000;
+    color:#fff;
+}
+.products-list img
+{
+    max-width: 300px;
+    max-height: 300px;
+}
+.products-list
+{
+    /*margin-top:20px;*/
+    /*margin-bottom: 20px;*/
+}
+.single-product-container
+{
+    margin-top:20px;
+
+    padding:5px;
+    /*border:1px solid grey;*/
+    border-radius: 3px;
+    box-shadow: 0px 0px 3px rgb(150, 150, 150);
+}
+.single-product-container > .row
+{
+    text-align: center;
+}
+.pagination-container
+{
+    text-align: center;
+}
+footer
+{
+    height: 300px;
+    background-color: #000;
+
+}
+.container
+{
+    min-height:700px;
+}
+.nav-header.list-group-item
+{
+    background-color: #000;
+    color:#fff;
+}
+.content-admin
+{
+    min-height: 700px;
+    padding-bottom: 70px;
+}
+/*    PAGE STYLES          */
+.page-conteiner
+{
+    border: 1px solid #ddd;
+    border-radius: 2px;
+}
+.page-title
+{
+    background-color: #000;
+    color:#fff;
+    padding:10px;
+    font-size: 25px;
+}
+.btn-success
+{
+    background-color: #000;
+    border-color: #000;
+}
+.btn-success:hover
+{
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
+.btn-success:focus
+{
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
+
+.input-controll
+{
+    display: block;
+
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.bxslider img
+{
+    height:500px;
+}
+/*--------------------------------------------------------------------------popup--------------------------------------------------*/
+.order-background
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: grey;
+    opacity: 0.5;
+    z-index: 1;
+}
+.order-form
+{
+    z-index: 1;
+    padding: 20px;
+    background-color: #fff;
+    display: inline-block;
+    position: absolute;
+    top: 20%;
+    left: 30%;
+}
+.order-container
+{
+    min-width: 500px;
+}
+.close
+{
+    background-color: #fff;
+    top: -25px;
+    left: 545px;
+    position: absolute;
+    opacity: 1 !important;
+    color: #000;
+}
