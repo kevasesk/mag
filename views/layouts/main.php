@@ -6,11 +6,14 @@
 use yii\helpers\Html;
 use yii\widgets\Menu;
 use app\models\Cart;
+use yii\helpers\Url;
+use app\assets\AppAsset;
+
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
-use app\assets\AppAsset;
 use yii\widgets\LinkPager;
+use yii\widgets\ActiveForm;
 
 AppAsset::register($this);
 ?>
@@ -28,10 +31,12 @@ AppAsset::register($this);
 <!-----------------------------------POPUP----------------------------->
 <div class="order-background">
 </div>
+
     <div class="order-form">
         <div class="close">X</div>
         <div class="order-container">
-            <form action="/order/create" method="post">
+            <form action="<?= Url::toRoute(['orders/create/']);?>" method="post">
+                <input type="hidden" name="_csrf" value="<?=Yii::$app->request->getCsrfToken()?>" />
                 <div class="row">
                     <span class="col-md-6">name:</span>
                     <?= Html::textInput('name',null,['class'=>'col-md-6',]); ?>
@@ -58,7 +63,8 @@ AppAsset::register($this);
                 </div>
 
                 <div class="order-controls">
-                    <input type="button" value="Submit" class="submit-button">
+                    <!-- Only AJAX only way to normal post data=------------------------------------------>
+                    <input type="submit" value="Submit" class="submit-button">
                     <input type="button" value="Close" class="close-button">
                 </div>
             </form>

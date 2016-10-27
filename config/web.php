@@ -45,6 +45,7 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 '' => 'site/index',
+                'POST <controller:\w+>/<action:\w+>/' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>/' => '<controller>/<action>',
 
             ],

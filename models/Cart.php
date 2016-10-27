@@ -34,9 +34,10 @@ class Cart
         foreach ($products as $key=>$product)
         {
             $return.="<tr>";
+                $return.="<input type='hidden' name='products[]' value='{$product['id']}'>";
                 $return.="<td>{$product['name']}</td>";
                 $return.="<td>{$product['cost']}</td>";
-                $return.="<td>{$product['count']}</td>";
+                $return.="<td><input type='hidden' name='count[]' value='{$product['count']}'>{$product['count']}</td>";
                 $return.="<td>{$product['total_cost']}</td>";
             $return.="</tr>";
         }

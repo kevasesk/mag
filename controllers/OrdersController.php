@@ -14,9 +14,6 @@ use yii\filters\VerbFilter;
  */
 class OrdersController extends Controller
 {
-    /**
-     * @inheritdoc
-     */
     public function behaviors()
     {
         return [
@@ -24,15 +21,12 @@ class OrdersController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                    'create' =>['post'],
                 ],
             ],
         ];
     }
 
-    /**
-     * Lists all Orders models.
-     * @return mixed
-     */
     public function actionIndex()
     {
         $searchModel = new OrdersSearch();
@@ -43,26 +37,16 @@ class OrdersController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
-
-    /**
-     * Displays a single Orders model.
-     * @param integer $id
-     * @return mixed
-     */
     public function actionView($id)
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
     }
-
-    /**
-     * Creates a new Orders model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
     public function actionCreate()
     {
+        print_R(Yii::$app->request->post());
+        exit();
         $model = new Orders();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -73,13 +57,6 @@ class OrdersController extends Controller
             ]);
         }
     }
-
-    /**
-     * Updates an existing Orders model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
