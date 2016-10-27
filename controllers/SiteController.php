@@ -96,11 +96,10 @@ class SiteController extends Controller
                 break;
             }
         }
-        //$products=Products::findAll($items);
+
         $filtered_items=array_count_values($items);
-       // $filtered_items['0']=$filtered_items[''];
-        //unset($filtered_items['']);
-       //G::ddd($filtered_items);
+
+
         Yii::$app->request->cookies['cart']->value=implode(',',$filtered_items);
         return $this->render('cart',[
             'products'=>$filtered_items

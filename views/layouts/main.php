@@ -5,6 +5,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\Menu;
+use app\models\Cart;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
@@ -33,11 +34,12 @@ AppAsset::register($this);
             <form action="/order/create" method="post">
                 <div class="row">
                     <span class="col-md-6">name:</span>
-                    <input type="text" class="col-md-6">
+                    <?= Html::textInput('name',null,['class'=>'col-md-6',]); ?>
+<!--                    <input type="text" class="col-md-6">-->
                 </div>
                 <div class="row">
                     <span class="col-md-6">surname:</span>
-                    <input type="text"  class="col-md-6">
+                    <?= Html::textInput('surname',null,['class'=>'col-md-6',]); ?>
                 </div>
                 <div class="row">
                     <table class="table">
@@ -47,23 +49,16 @@ AppAsset::register($this);
                             <th>Count</th>
                             <th>Total Cost</th>
                         </tr>
-                        <tr>
-                            <td>11111111111 1111111111 11111</td>
-                            <td>222</td>
-                            <td>33</td>
-                            <td>33</td>
-                        </tr>
-                        <tr>
-                            <td>111</td>
-                            <td>222</td>
-                            <td>33</td>
-                            <td>33</td>
-                        </tr>
+                        <?php
+                            $products=Cart::getFormatProducts(Cart::getCookies());
+                            echo Cart::tableRows($products);
+                        ?>
+
                     </table>
                 </div>
 
                 <div class="order-controls">
-                    <input type="submit" value="Submit" class="submit-button">
+                    <input type="button" value="Submit" class="submit-button">
                     <input type="button" value="Close" class="close-button">
                 </div>
             </form>

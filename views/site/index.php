@@ -23,14 +23,10 @@ use yii\widgets\LinkPager;
 
     <ul class="bxslider">
         <?php
-               // print_R($slider);
             foreach($slider as $key=>$img){
         ?>
             <li data-id="<?php echo $key;?>"><a href=""><img src="../uploads/<?php echo $img;?>" /></a></li>
         <?php } ?>
-<!--        <li><img src="../uploads/Koala.jpg" /></li>-->
-<!--        <li><img src="../uploads/Jellyfish.jpg" /></li>-->
-<!--        <li><img src="../uploads/Tulips.jpg" /></li>-->
     </ul>
 
 
