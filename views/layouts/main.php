@@ -55,7 +55,7 @@ AppAsset::register($this);
                             <th>Total Cost</th>
                         </tr>
                         <?php
-                            $products=Cart::getFormatProducts(Cart::getCookies());
+                            $products=Cart::getFormatProducts();
                             echo Cart::tableRows($products);
                         ?>
 

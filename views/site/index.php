@@ -1,5 +1,6 @@
 <?php
 use yii\widgets\LinkPager;
+use app\models\Cart;
 ?>
 
 
@@ -28,8 +29,6 @@ use yii\widgets\LinkPager;
             <li data-id="<?php echo $key;?>"><a href=""><img src="../uploads/<?php echo $img;?>" /></a></li>
         <?php } ?>
     </ul>
-
-
 <div class="row navmenu">
     <ul class="nav nav-pills">
         <li class="active"><a href="#">Телефоны</a></li>

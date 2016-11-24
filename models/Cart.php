@@ -6,14 +6,49 @@ use Yii;
 
 class Cart
 {
-    public static function getCookies()
+    public static function getProductsFromCookies()
     {
         $items=explode(',',Yii::$app->request->cookies['cart']->value);
-        unset($items[0]);
         return array_count_values($items);
     }
-    public static function getFormatProducts($products)
+    public static function getCookies()
     {
+        return Yii::$app->request->cookies['cart']->value;
+    }
+    public static function add($id)
+    {
+        $value=(Yii::$app->request->cookies['cart']->value)?
+                    Yii::$app->request->cookies['cart']->value.',' :
+                    Yii::$app->request->cookies['cart']->value;
+        Yii::$app->response->cookies->add(new \yii\web\Cookie([
+            'name' => 'cart',
+            'value' =>$value.$id,
+        ]));
+        //print_r(Yii::$app->request->cookies['cart']->value);
+    }
+    public static function del($id)
+    {
+        $items=explode(',',Yii::$app->request->cookies['cart']->value);
+       // G::dd(Yii::$app->request->cookies['cart']->value);
+       // unset($items[0]);
+        foreach ($items as $key=>$item)
+        {
+            if($item==$id)
+            {
+                unset($items[$key]);
+                break;
+            }
+        }
+        Yii::$app->response->cookies->add(new \yii\web\Cookie([
+            'name' => 'cart',
+            'value' =>implode(',',$items),
+        ]));
+         //G::dd(Yii::$app->request->cookies['cart']->value);
+        //exit();
+    }
+    public static function getFormatProducts()
+    {
+        $products=Cart::getProductsFromCookies();
         $format=[];
         $prods=Products::findAll(array_keys($products));
         foreach ($prods as $key=>$product)

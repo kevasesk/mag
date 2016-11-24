@@ -65,6 +65,7 @@ class ProductsController extends Controller
         $all_categories=$this->resetArr(Categories::find()->select('title')->asArray()->all());
         $manufacturers=$this->resetArr(Manufacturers::find()->select('manufacturers_title')->asArray()->all());
 
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
 
             $new_meta=Yii::$app->request->post();

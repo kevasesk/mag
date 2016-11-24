@@ -23,11 +23,9 @@ use app\models\G;
 
 
 
-
-
-echo $form->field($model, 'id_category')->dropDownList($categories);
+echo ($categories) ? $form->field($model, 'id_category')->dropDownList($categories) : '';
 //exit(print_R($categories));
-echo $form->field($model, 'id_manufacturers')->dropDownList($manufacturers);
+echo ($manufacturers) ? $form->field($model, 'id_manufacturers')->dropDownList($manufacturers) : '';
 // if no meta on product show this. if there is meta in product...show foreach fields
 ?>
 

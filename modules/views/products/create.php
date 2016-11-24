@@ -22,6 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'meta'=>$meta,
         'categories'=>$categories,
+        'manufacturers'=>$manufacturers,
         'upload'=>$upload,
     ]) ?>
 

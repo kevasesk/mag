@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'raw',
                 'value' => function($data){
 
-                    return !($data->manufacturer->manufacturers_title)?
+                    return !($data)?
                         '(No img)':
                         Html::img(G::getImage($data->id),
                             [

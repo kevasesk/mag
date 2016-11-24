@@ -1,12 +1,13 @@
 <?php
 use app\models\Products;
 use app\models\G;
+use app\models\Cart;
 use yii\helpers\Html;
 //print_R($products);
 
 //print_R($products);
 $products_items=Products::findAll(array_keys($products));
-G::dd($products);
+//G::dd(Cart::getCookies());
 
 foreach($products_items as $key=>$item){?>
 
@@ -50,8 +51,10 @@ foreach($products_items as $key=>$item){?>
         </div>
     </div>
 
- <?php } ?>
-<?=Html::a('To order','#',['class'=>'order-button']);?>
+ <?php }
+
+?>
+<?php echo ($products_items) ? Html::a('To order','#',['class'=>'order-button']) : 'Your cart is empty'; ?>
 
 
 

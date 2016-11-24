@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use app\models\OrdersProducts;
+use Faker\Provider\cs_CZ\DateTime;
 use Yii;
 use app\models\Orders;
 use app\models\OrdersSearch;
@@ -45,17 +47,38 @@ class OrdersController extends Controller
     }
     public function actionCreate()
     {
-        print_R(Yii::$app->request->post());
-        exit();
-        $model = new Orders();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+        $products=Yii::$app->request->post('products');
+        $count=Yii::$app->request->post('count');
+        //print_R(Yii::$app->request->post());
+        //exit();
+        $user = new Orders();
+            $user->name=Yii::$app->request->post('name');
+            $user->surname=Yii::$app->request->post('name');
+            $user->date=date('Y-m-d',time());
+            $user->email='1';
+            $user->telephone='1';
+            $user->adress='1';
+        $user->save();
+       //print_r($user->id);
+        //count
+        for($i=0;$i<count($products);$i++){
+            $user_prod = new OrdersProducts();
+            $user_prod->id_product=$products[$i];
+            $user_prod->id_order=$user->id;
+            $user_prod->count=$count[$i];
+            $user_prod->save();
         }
+        Yii::$app->response->cookies->remove('cart');
+        return $this->redirect('/site/index',302);
+
+
+//        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+//            return $this->redirect(['view', 'id' => $model->id]);
+//        } else {
+//            return $this->render('create', [
+//                'model' => $model,
+//            ]);
+//        }
     }
     public function actionUpdate($id)
     {

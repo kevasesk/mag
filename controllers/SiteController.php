@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\MetaProducts;
 use app\models\Products;
+use app\models\Cart;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -62,20 +63,14 @@ class SiteController extends Controller
     public function actionCart($id)
     {
 
-        Yii::$app->response->cookies->add(new \yii\web\Cookie([
-            'name' => 'cart',
-            'value' =>Yii::$app->request->cookies['cart']->value.','.$id,
-        ]));
+        Cart::add($id);
         return $this->redirect('index');
     }
     public function actionCartview()
     {
-        $items=explode(',',Yii::$app->request->cookies['cart']->value);
-        unset($items[0]);
-        $filtered_items=array_count_values($items);
 
         return $this->render('cart',[
-            'products'=>$filtered_items
+            'products'=>Cart::getProductsFromCookies()
         ]);
     }
     public function actionDelcartitem($id)
@@ -86,24 +81,8 @@ class SiteController extends Controller
 
 
         //ERROR   get cookies->to arr->uset->unset item->rewrite cookie->go to cartview!!!!!!!!!!!!!!!!
-        $items=explode(',',Yii::$app->request->cookies['cart']->value);
-        unset($items[0]);
-        foreach ($items as $key=>$item)
-        {
-            if($item==$id)
-            {
-                unset($items[$key]);
-                break;
-            }
-        }
-
-        $filtered_items=array_count_values($items);
-
-
-        Yii::$app->request->cookies['cart']->value=implode(',',$filtered_items);
-        return $this->render('cart',[
-            'products'=>$filtered_items
-        ]);
+        Cart::del($id);
+        return $this->redirect(['/site/cartview']);
     }
     public function actionProducts($id)
     {
