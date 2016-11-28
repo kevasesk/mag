@@ -2,11 +2,23 @@
 
 $params = require(__DIR__ . '/params.php');
 
+
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'components' => [
+        'view'=>[
+            'theme'=>[
+                'basePath' => '@app/web/themes/black_and_white',
+                'baseUrl' => '@app/web/themes/black_and_white',
+                'pathMap' => [
+                    '@app/views' => '@app/web/themes/black_and_white/views',
+                    '@app/modules' => '@app/web/themes/black_and_white/modules',
+                ],
+            ],
+        ],
+
 
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -53,15 +65,19 @@ $config = [
 
     ],
     'params' => $params,
+    'aliases'=>[
+        '@img'=>'/themes/black_and_white/images/',
+    ],
     'modules' => [
         'admin' => [
             'class' => 'app\modules\Admin',
             'layout'=>'main',
-
         ],
 
     ],
 ];
+
+
 
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment

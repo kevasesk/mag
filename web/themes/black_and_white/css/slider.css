@@ -1,0 +1,77 @@
+.dm-image-conteiner
+{
+    position: relative;
+    border: 1px solid grey;
+    box-shadow: 0px 0px 3px rgb(150, 150, 150);
+    border-radius: 3px;
+    min-width: 100%;
+
+
+
+    margin: 20px 0px;
+}
+.dm-image
+{
+    left: 26%;
+    position: relative;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-position: center;
+
+
+}
+.fa.fa-chevron-left, .fa.fa-chevron-right
+{
+    position: absolute;
+    top:50%;
+    left: 1%;
+
+    color:#337ab7;
+    padding:10px 5px;
+    font-size: 30px;
+    background-color: #000;
+    text-decoration: none;
+
+}
+.fa.fa-chevron-right
+{
+    left: 97%;
+}
+.dm-points
+{
+    padding-left: 0;
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    list-style: none;
+}
+.dm-points li
+{
+    display: table-cell;
+    vertical-align: middle;
+    color: #fff;
+    height: 18px;
+    /* background-color: orange; */
+
+
+}
+.dm-points li .point
+{
+    padding: 5px;
+
+    margin-left: 10px;
+    border-radius: 10px;
+    border: 2px solid #000;
+}
+.dm-points li .point.active
+{
+    border: 2px solid #000;
+    padding: 7px;
+    border-radius: 14px;
+    background-color: #000;
+}
+.dm-points li .point:hover
+{
+    background-color: #000;
+    cursor: pointer;
+}

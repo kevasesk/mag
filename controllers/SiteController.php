@@ -39,6 +39,8 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+        //G::dd(Yii::$app);
+       // exit();
         $products   = Products::find()->all();
         $query      = Products::find();
         $countQuery = clone $query;
